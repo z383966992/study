@@ -22,9 +22,7 @@ public class HeapSort {
 	/**
 	 * 创建最大堆
 	 *
-	 * @paramdata
-	 * @paramheapSize需要创建最大堆的大小，一般在sort的时候用到，因为最多值放在末尾，末尾就不再归入最大堆了
-	 * @paramindex当前需要创建最大堆的位置
+
 	 */
 	private static void maxHeapify(int[] data, int heapSize, int index) {
 		// 当前点与左右子节点比较
@@ -49,8 +47,6 @@ public class HeapSort {
 
 	/**
 	 * 排序，最大值放在末尾，data虽然是最大堆，在排序后就成了递增的
-	 *
-	 * @paramdata
 	 */
 	private static void heapSort(int[] data) {
 		// 末尾与头交换，交换后调整最大堆
@@ -65,8 +61,6 @@ public class HeapSort {
 	/**
 	 * 父节点位置
 	 *
-	 * @paramcurrent
-	 * @return
 	 */
 	private static int getParentIndex(int current) {
 		return (current - 1) >> 1;
@@ -75,8 +69,6 @@ public class HeapSort {
 	/**
 	 * 左子节点position注意括号，加法优先级更高
 	 *
-	 * @paramcurrent
-	 * @return
 	 */
 	private static int getChildLeftIndex(int current) {
 		return (current << 1) + 1;
@@ -84,9 +76,6 @@ public class HeapSort {
 
 	/**
 	 * 右子节点position
-	 *
-	 * @paramcurrent
-	 * @return
 	 */
 	private static int getChildRightIndex(int current) {
 		return (current << 1) + 2;
@@ -106,8 +95,6 @@ public class HeapSort {
 	/**
 	 * 以2为底的对数
 	 *
-	 * @paramparam
-	 * @return
 	 */
 	private static double getLog(double param) {
 		return Math.log(param) / Math.log(2);

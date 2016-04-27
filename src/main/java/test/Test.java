@@ -1,9 +1,9 @@
 package test;
 
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.Collections;
-import java.util.Hashtable;
-import java.util.LinkedList;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 public class Test {
 	
 	//递归
@@ -17,7 +17,39 @@ public class Test {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(new Test().factorial(5));
+		
+		Map<Integer, String> map = new TreeMap<Integer, String>();
+		
+		map.put(5, "555");
+		map.put(2, "222");
+		map.put(3, "333");
+		map.put(8, "888");
+		
+//		Iterator<Entry<Integer, String>> entry = map.entrySet().iterator();
+//		
+//		while(entry.hasNext()) {
+//			Entry<Integer, String> node = entry.next();
+//			System.out.println(node.getKey() + " " + node.getValue());
+//			
+//		}
+		
+		
+		Iterator<Integer> iter = map.keySet().iterator();
+		while(iter.hasNext()) {
+			Integer inte = iter.next();
+			if(inte >=3 && inte <=8) {
+				System.out.println(inte + "  " + map.get(inte));
+			}
+		}
+		
+		
+//		HashMap<String, String> map = new HashMap<String, String>();
+//		System.out.println(map.put("1123","123"));
+//		System.out.println(map.put("1123","1234"));
+//		System.out.println(map.put("1123","12345"));
+//		ConcurrentHashMap<String, String> cmap = new ConcurrentHashMap<String, String>();
+//		cmap.put("", "");
+//		System.out.println(new Test().factorial(5));
 //		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //		Date date = new Date(1433779200000l);
 //		try {
