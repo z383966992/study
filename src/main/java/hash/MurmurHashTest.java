@@ -1,5 +1,4 @@
 package hash;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,7 +8,6 @@ public class MurmurHashTest {
 
     private static final Logger logger = LoggerFactory.getLogger(MurmurHashTest.class);
 
-    @Test
     public void test() throws IOException {
         System.out.println(Murmurs.hashUnsigned("chenshuo").toString());
         //.isEqualTo("5016608279269930526");
