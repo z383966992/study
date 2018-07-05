@@ -35,8 +35,8 @@ public class BinSearch {
 	}
 	
 	public static void main(String[] args) {
-		int[] array = new int[]{1,3,5,7,9,12,14,19};
+		int[] array = new int[]{1,3,5,7,9,12,14,19,20};
 //		System.out.println(new BinSearch().search(array, 7));
-		System.out.println(new BinSearch().search(array, -1, 0, array.length));
+		System.out.println(new BinSearch().search(array, 1, 0, array.length));
 	}
 }

@@ -21,5 +21,4 @@ public class Worker {
 		Worker w = new Worker();
 		w.doWork();
 	}
-
 }

@@ -3,6 +3,7 @@ package mysql;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Random;
 
 public class ConnectToMysql {
@@ -41,15 +42,14 @@ public class ConnectToMysql {
 			conn = DriverManager.getConnection(url, user, password);
 
 			// 要执行的SQL语句
-			String sql = "INSERT INTO employee(`name`,salary, deptid) VALUES (?,?,?);";
+			String selectSql = "select digit from locktest where id=?;";
 
 			// statement用来执行SQL语句
-			pstmt = conn.prepareStatement(sql);
-			for (int i = 0; i < num; i++) {
-				pstmt.setString(1, getRandomString(20));
-				pstmt.setInt(2, getRandomNumber(100000));
-				pstmt.setInt(3, 1);
-				pstmt.execute();
+			pstmt = conn.prepareStatement(selectSql);
+			pstmt.setInt(1, 1);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int digit = rs.getInt(1);
 			}
 			for (int i = 0; i < num; i++) {
 				pstmt.setString(1, getRandomString(20));
@@ -76,6 +76,6 @@ public class ConnectToMysql {
 
 	public static void main(String[] args) {
 		ConnectToMysql ctm = new ConnectToMysql();
-		ctm.insert(500000);
+		ctm.insert(10);
 	}
 }
