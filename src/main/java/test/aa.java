@@ -6,6 +6,7 @@ public class aa{
 	 public static void main(String args []) {
 		 System.out.println(100%6);
 		 System.out.println(4/3);
+		 System.out.println("sdfsfsfsfsf");
 //		 System.out.println(10 << 20);
 //	 		Vector v = new Vector();
 //	 		for(int i=1; i<=10; i++) {
