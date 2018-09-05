@@ -571,7 +571,7 @@ System.out.println(daoName);
 		List<String> tableNameList = getTables();
 		for(String tableName : tableNameList) {
 			//获得表中字段的说明
-			String sql = "show full fields from " + tableName;
+			String sql = "show full fields from " + "\\`"+ tableName + "\\`";
 			pstate = conn.prepareStatement(sql);
 			ResultSet rs = pstate.executeQuery();
 			while(rs.next()) {
