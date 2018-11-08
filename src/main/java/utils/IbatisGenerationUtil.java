@@ -27,17 +27,17 @@ import java.util.Map;
  */
 public class IbatisGenerationUtil {
 	//dao，model等生成之后存放的package的名称
-	private String packages = "com.zll";
+	private String packages = "com.sankuai.zebramultidatasource.zebra";
 	//数据库用户名
 	private String username="root";
 	//数据库密码
-	private String password="root";
+	private String password="123456";
 	//目标数据库名
-	private String database="test";
+	private String database="tdb";
 	//数据库url
-	private String url="jdbc:mysql://127.0.0.1:3306/" + database + "?characterEncoding=utf8";
+	private String url="jdbc:mysql://localhost:3306/" + database + "?characterEncoding=utf8";
 	//数据库驱动
-	private String driverName="com.mysql.jdbc.Driver";
+	private String driverName="com.mysql.cj.jdbc.Driver";
 	//数据库连接
 	private Connection conn = null;
 	//生成的model的原始名称
@@ -53,7 +53,7 @@ public class IbatisGenerationUtil {
 	//生成的model的存放地址
 	private String sourcePath = "src.main.java";
 	//生成的mapper的存放地址
-	private String mapperPath = "src.main.resources.mapper";
+	private String mapperPath = "src.main.resources.mapping";
 	//获得数据库连接
 	private void init() throws Exception{
 		//获得数据库连接
@@ -255,16 +255,16 @@ System.out.println(daoName);
         bw.write("public interface " + daoName  + " {");
         bw.newLine();
         //生成insert方法
-        bw.write("\tpublic void " + " insert" + initModelName + "(" + modelName + " " + changeFirstLetterToLowerCase(modelName) + ");");
+        bw.write("\tvoid " + " insert" + initModelName + "(" + modelName + " " + changeFirstLetterToLowerCase(modelName) + ");");
         bw.newLine();
         //生成update方法
-        bw.write("\tpublic boolean" + " update" + initModelName + "(" + modelName + " " + changeFirstLetterToLowerCase(modelName) + ");");
+        bw.write("\tboolean" + " update" + initModelName + "(" + modelName + " " + changeFirstLetterToLowerCase(modelName) + ");");
         bw.newLine();
         //生成select方法
-        bw.write("\tpublic " + modelName + " selectByPrimaryKey" + "(" + "@Param(\"" + genAttributeName(primaryKeyMap.get("attributeName")) + "\") " + genAttributeType(primaryKeyMap.get("attributeType")) + " " + genAttributeName(primaryKeyMap.get("attributeName")) + ");");
+        bw.write("\t" + modelName + " selectByPrimaryKey" + "(" + "@Param(\"" + genAttributeName(primaryKeyMap.get("attributeName")) + "\") " + genAttributeType(primaryKeyMap.get("attributeType")) + " " + genAttributeName(primaryKeyMap.get("attributeName")) + ");");
         bw.newLine();
         //生成delete方法
-        bw.write("\tpublic boolean"  + " deleteByPrimaryKey" + "(" + "@Param(\"" + genAttributeName(primaryKeyMap.get("attributeName")) + "\") " + genAttributeType(primaryKeyMap.get("attributeType")) + " " + genAttributeName(primaryKeyMap.get("attributeName")) + ");");
+        bw.write("\tboolean"  + " deleteByPrimaryKey" + "(" + "@Param(\"" + genAttributeName(primaryKeyMap.get("attributeName")) + "\") " + genAttributeType(primaryKeyMap.get("attributeType")) + " " + genAttributeName(primaryKeyMap.get("attributeName")) + ");");
         bw.newLine();
         bw.write("}");
         bw.flush();
@@ -571,7 +571,7 @@ System.out.println(daoName);
 		List<String> tableNameList = getTables();
 		for(String tableName : tableNameList) {
 			//获得表中字段的说明
-			String sql = "show full fields from " + "\\`"+ tableName + "\\`";
+			String sql = "show full fields from " + "`" + tableName + "`";
 			pstate = conn.prepareStatement(sql);
 			ResultSet rs = pstate.executeQuery();
 			while(rs.next()) {

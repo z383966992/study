@@ -1,4 +1,4 @@
-package hash;
+package algorithm.hash;
 
 import java.math.BigDecimal;
 import java.nio.ByteBuffer;

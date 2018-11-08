@@ -1,6 +1,7 @@
-package stack;
+package algorithm.stack;
 
 import java.util.concurrent.atomic.AtomicReference;
+
 /**
  * 多线程并发stack 非阻塞栈
  * @author Administrator

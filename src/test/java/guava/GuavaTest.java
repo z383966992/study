@@ -32,5 +32,6 @@ class Person {
 	//guava toString
 	public String toString() {
 		return Objects.toStringHelper(Person.class).add("name", name).add("score", score).toString();
+		///
 	}
 }

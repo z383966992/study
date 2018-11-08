@@ -12,7 +12,7 @@ import java.util.concurrent.FutureTask;
  */
 public class FutureTaskCount {
 	
-	private final FutureTask<Integer> future = new FutureTask<>(new Callable<Integer>() {
+	private final FutureTask<Integer> future = new FutureTask<Integer>(new Callable<Integer>() {
 		@Override
 		public Integer call() throws Exception {
 			int sum = 0;

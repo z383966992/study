@@ -1,4 +1,4 @@
-package bin_tree;
+package algorithm.bin_tree;
 
 import java.util.LinkedList;
 import java.util.List;

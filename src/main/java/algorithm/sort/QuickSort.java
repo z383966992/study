@@ -1,4 +1,4 @@
-package sort;
+package algorithm.sort;
 
 //设要排序的数组是A[0]……A[N-1]，
 //首先任意选取一个数据（通常选用数组的第一个数）作为关键数据，

@@ -1,4 +1,4 @@
-package other;
+package algorithm;
 
 public class Factorial {
 	
